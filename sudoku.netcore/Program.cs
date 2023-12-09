@@ -131,6 +131,8 @@ namespace SudokuSolverInProgress
         static void initManualGrid(char[,] grid, char[][,] boxes)
         {
             char bemenet = 'a';
+            bool siker = false;
+            char szambe; 
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
@@ -139,50 +141,244 @@ namespace SudokuSolverInProgress
                     grid[i, j] = '.';
                     showGrid(grid, boxes);
                     Console.WriteLine("\nkérem a kovetkezo erteket:");
-                    bemenet = Console.ReadKey().KeyChar;
+                    siker = false;
+
+                    while (!siker)
+                    {
+                        try
+                        {
+                            szambe = Console.ReadKey().KeyChar;
+                            if (szambe =='0' || szambe =='1' ||szambe == '2' || szambe == '3' || szambe == '4' || szambe == '5' || szambe == '6' || szambe == '7' || szambe == '8' ||szambe =='9')
+                            {
+                                bemenet = szambe;
+                                siker = true;
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nSZÁMOT írj be");
+                                siker = false;
+                            }
+                           
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                    }
+
+
                     while ((isInSor(grid, i, bemenet) || isInOszlop(grid, j, bemenet) || isInBox(bemenet, holVagyok(grid, i, j), boxes)) && bemenet != '0')
                     {
                         if (isInSor(grid, i, bemenet) && isInOszlop(grid, j, bemenet) && isInBox(bemenet, holVagyok(grid, i, j), boxes))
                         {
-                            Console.WriteLine("ilyen szám már van a sorban ÉS az oszlopban ÉS a dobozban is!!!");
+                           // Console.Clear() ;
+                            Console.WriteLine("\nilyen szám már van a sorban ÉS az oszlopban ÉS a dobozban is!!!");
                             Console.WriteLine("Irj be másikat:");
-                            bemenet = Convert.ToChar(Console.ReadLine());
+                            siker = false;
+                            while (!siker)
+                            {
+                                try
+                                {
+                                    szambe = Console.ReadKey().KeyChar;
+                                    if (szambe == '0' || szambe == '1' || szambe == '2' || szambe == '3' || szambe == '4' || szambe == '5' || szambe == '6' || szambe == '7' || szambe == '8' || szambe == '9')
+                                    {
+                                        bemenet = szambe;
+                                        siker = true;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("\nSZÁMOT írj be");
+                                        siker = false;
+                                    }
+
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine(e.Message);
+                                }
+                            }
                         }
                         else if (isInSor(grid, i, bemenet) && isInOszlop(grid, j, bemenet))
                         {
-                            Console.WriteLine("ilyen szám már van a sorban ÉS az oszlopban is!!!");
+                            //Console.Clear() ;
+                            Console.WriteLine("\nilyen szám már van a sorban ÉS az oszlopban is!!!");
                             Console.WriteLine("Irj be másikat:");
-                            bemenet = Convert.ToChar(Console.ReadLine());
+                            siker = false;
+                            while (!siker)
+                            {
+                                try
+                                {
+                                    szambe = Console.ReadKey().KeyChar;
+                                    if (szambe == '0' || szambe == '1' || szambe == '2' || szambe == '3' || szambe == '4' || szambe == '5' || szambe == '6' || szambe == '7' || szambe == '8' || szambe == '9')
+                                    {
+                                        bemenet = szambe;
+                                        siker = true;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("\nSZÁMOT írj be");
+                                        siker = false;
+                                    }
+
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine(e.Message);
+                                }
+                            }
                         }
                         else if (isInSor(grid, i, bemenet) && isInBox(bemenet, holVagyok(grid, i, j), boxes))
                         {
-                            Console.WriteLine("ilyen szám már van a sorban ÉS a dobozban is!!!");
+                            //Console.Clear() ;
+                            Console.WriteLine("\nilyen szám már van a sorban ÉS a dobozban is!!!");
                             Console.WriteLine("Irj be másikat:");
-                            bemenet = Convert.ToChar(Console.ReadLine());
+                            siker = false;
+                    while (!siker)
+                    {
+                        try
+                        {
+                            szambe = Console.ReadKey().KeyChar;
+                            if (szambe =='0' || szambe =='1' ||szambe == '2' || szambe == '3' || szambe == '4' || szambe == '5' || szambe == '6' || szambe == '7' || szambe == '8' ||szambe =='9')
+                            {
+                                bemenet = szambe;
+                                siker = true;
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nSZÁMOT írj be");
+                                siker = false;
+                            }
+                           
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                    }
                         }
                         else if (isInOszlop(grid, j, bemenet) && isInBox(bemenet, holVagyok(grid, i, j), boxes))
                         {
-                            Console.WriteLine("ilyen szám már van az oszlopban ÉS a dobozban is!!!");
+                            //Console.Clear() ;
+                            Console.WriteLine("\nilyen szám már van az oszlopban ÉS a dobozban is!!!");
                             Console.WriteLine("Irj be másikat:");
-                            bemenet = Convert.ToChar(Console.ReadLine());
+                            siker = false;
+                            while (!siker)
+                            {
+                                try
+                                {
+                                    szambe = Console.ReadKey().KeyChar;
+                                    if (szambe == '0' || szambe == '1' || szambe == '2' || szambe == '3' || szambe == '4' || szambe == '5' || szambe == '6' || szambe == '7' || szambe == '8' || szambe == '9')
+                                    {
+                                        bemenet = szambe;
+                                        siker = true;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("\nSZÁMOT írj be");
+                                        siker = false;
+                                    }
+
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine(e.Message);
+                                }
+                            }
                         }
                         else if (isInSor(grid, i, bemenet))
                         {
-                            Console.WriteLine("ilyen szám már van a sorban!!!");
+                            //Console.Clear();
+                            Console.WriteLine("\nilyen szám már van a sorban!!!");
                             Console.WriteLine("Irj be másikat:");
-                            bemenet = Convert.ToChar(Console.ReadLine());
+                            siker = false;
+                            while (!siker)
+                            {
+                                try
+                                {
+                                    szambe = Console.ReadKey().KeyChar;
+                                    if (szambe == '0' || szambe == '1' || szambe == '2' || szambe == '3' || szambe == '4' || szambe == '5' || szambe == '6' || szambe == '7' || szambe == '8' || szambe == '9')
+                                    {
+                                        bemenet = szambe;
+                                        siker = true;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("\nSZÁMOT írj be");
+                                        siker = false;
+                                    }
+
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine(e.Message);
+                                }
+                            }
                         }
                         else if (isInOszlop(grid, j, bemenet))
                         {
-                            Console.WriteLine("ilyen szám már van az oszlopban!!!");
+                            //Console.Clear();
+                            Console.WriteLine("\nilyen szám már van az oszlopban!!!");
                             Console.WriteLine("Irj be másikat:");
-                            bemenet = Convert.ToChar(Console.ReadLine());
+                            siker = false;
+                            while (!siker)
+                            {
+                                try
+                                {
+                                    szambe = Console.ReadKey().KeyChar;
+                                    if (szambe == '0' || szambe == '1' || szambe == '2' || szambe == '3' || szambe == '4' || szambe == '5' || szambe == '6' || szambe == '7' || szambe == '8' || szambe == '9')
+                                    {
+                                        bemenet = szambe;
+                                        siker = true;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("\nSZÁMOT írj be");
+                                        siker = false;
+                                    }
+
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine(e.Message);
+                                }
+                            }
                         }
                         else if (isInBox(bemenet, holVagyok(grid, i, j), boxes))
                         {
-                            Console.WriteLine("ilyen szám már van a dobozban!!!");
+                            //Console.Clear() ;
+                            Console.WriteLine("\nilyen szám már van a dobozban!!!");
                             Console.WriteLine("Irj be másikat:");
-                            bemenet = Convert.ToChar(Console.ReadLine());
+                            siker = false;
+                            while (!siker)
+                            {
+                                try
+                                {
+                                    szambe = Console.ReadKey().KeyChar;
+                                    if (szambe == '0' || szambe == '1' || szambe == '2' || szambe == '3' || szambe == '4' || szambe == '5' || szambe == '6' || szambe == '7' || szambe == '8' || szambe == '9')
+                                    {
+                                        bemenet = szambe;
+                                        siker = true;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("\nSZÁMOT írj be");
+                                        siker = false;
+                                    }
+
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine(e.Message);
+                                }
+                            }
                         }
                     }
                     grid[i, j] = bemenet;
